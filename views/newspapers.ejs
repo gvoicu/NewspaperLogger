@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= include header.ejs %>
+    <script src="/javascripts/newspapers.js"></script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        <a href="#" id="close_app" onclick="window.close()">Home</a>
+        <h3>Ziare</h3>
+        <a href="#" id="fin_command">Finalizeaza</a>
+      </div>
+      <div data-role="content">
+          <form id="submit_order">
+            <ul data-role="listview" data-filter="true">
+                <% for(i = 0; i < items.length; i++) { %>
+                  <li>
+                    <%= items[i].name %>
+                    <div data-role="fieldcontain">
+                      <fieldset data-role="controlgroup">
+                        <input type="checkbox" name="checkbox-1" id="checkbox-<%= items[i].name %>" data-check-id="<%= items[i].name %>" class="select-checkbox" data-addon="<%= items[i].addon %>" data-price="<%= items[i].price %>" data-addon-price="<%= items[i].addon_price %>" />
+                        <label for="checkbox-<%= items[i].name %>">Adauga</label>
+                        </fieldset>
+                    </div>
+                  </li>
+                <% } %>
+            </ul>
+          </form>
+      </div>
+
+      <div data-role="footer">		
+        <div data-role="navbar">
+          <ul>
+            <li style="padding-top: 10px;">
+              <center>
+                Total Sum: <span id="total_sum">0</span> RON
+              </center>
+            </li>
+            <li><a href="#" id="clear_list">Clear List</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
