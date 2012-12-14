@@ -28,7 +28,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', newspapers.list);
 app.get('/users', user.list);
 app.get('/newspapers', newspapers.list);
 app.post("/fin_command", newspapers.fin_command);

@@ -19,7 +19,6 @@ $(function(){
 
       if(this.checked == true){
         // A adaugat comanda
-
         cc[hash_key] = [1, 0];
 
         if($(this).data("addon") == "1"){
@@ -30,11 +29,11 @@ $(function(){
           }
         }
 
-        $("#total_sum").html(parseInt($("#total_sum").html()) + cc[hash_key][0] * price + cc[hash_key][1] * addon_price );
+        $("#total_sum").html(parseInt($("#total_sum").html(),10) + cc[hash_key][0] * price + cc[hash_key][1] * addon_price );
 
       } else {
         // A sters comanda
-        $("#total_sum").html(parseInt($("#total_sum").html()) - cc[hash_key][0] * price - cc[hash_key][1] * addon_price );
+        $("#total_sum").html(parseInt($("#total_sum").html(),10) - cc[hash_key][0] * price - cc[hash_key][1] * addon_price );
         cc[hash_key] = null;
       }
     });

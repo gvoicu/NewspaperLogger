@@ -8,7 +8,7 @@
     <div data-role="page">
       <div data-role="header">
         <a href="#" id="close_app" onclick="window.close()">Home</a>
-        <h3>Ziare</h3>
+        <h3><span id="total_sum">0</span> RON</h3>
         <a href="#" id="fin_command">Finalizeaza</a>
       </div>
       <div data-role="content">
@@ -16,7 +16,13 @@
             <ul data-role="listview" data-filter="true">
                 <% for(i = 0; i < items.length; i++) { %>
                   <li>
-                    <%= items[i].name %>
+                    <%= items[i].name %> 
+                    <p class="ui-li-aside ui-li-desc"><%= items[i].price %> RON 
+                        <% if( items[i].addon == 1) { %>
+                          +  <%= items[i].addon_price %> RON
+                        <% } %>
+                    </p>
+
                     <div data-role="fieldcontain">
                       <fieldset data-role="controlgroup">
                         <input type="checkbox" name="checkbox-1" id="checkbox-<%= items[i].name %>" data-check-id="<%= items[i].name %>" class="select-checkbox" data-addon="<%= items[i].addon %>" data-price="<%= items[i].price %>" data-addon-price="<%= items[i].addon_price %>" />
@@ -29,14 +35,9 @@
           </form>
       </div>
 
-      <div data-role="footer">		
+      <div data-role="footer" data-position="fixed">		
         <div data-role="navbar">
           <ul>
-            <li style="padding-top: 10px;">
-              <center>
-                Total Sum: <span id="total_sum">0</span> RON
-              </center>
-            </li>
             <li><a href="#" id="clear_list">Clear List</a></li>
           </ul>
         </div>

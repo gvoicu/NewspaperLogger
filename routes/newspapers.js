@@ -9,7 +9,6 @@ console.log("Connecting to " + host + ":" + port);
 
 var db = new Db('newspapers', new Server(host, port, {}), {native_parser:true});
 db.open(function(err, db) {
-  console.log("in db.open");
   if(err){
     console.log("The 'wines' collection doesn't exist. Creating it with sample data...");
     populateDb();
@@ -93,7 +92,6 @@ var populateDb = function() {
       addon: 1,
       price: 10,
       addon_price: 15
-
     },
     {
       name: "Libertatea",
@@ -104,6 +102,46 @@ var populateDb = function() {
       addon: 0,
       price: 20,
       addon_price: 0
+    },
+    {
+      name: "Practic in bucatarie",
+      category: "Culinar",
+      periodicity: "Lunar",
+      newspaper_type: "Platit",
+      area: "National",
+      addon: 0,
+      price: 15,
+      addon_price: 15
+    },
+    {
+      name: "Click! de Duminica",
+      category: "Publicatie de weekend",
+      periodicity: "Saptamanal",
+      newspaper_type: "Platit",
+      area: "National",
+      addon: 1,
+      price: 13,
+      addon_price: 12
+    },
+    {
+      name: "Libertatea pentru femei",
+      category: "Femei",
+      periodicity: "Saptamanal",
+      newspaper_type: "Platit",
+      area: "National",
+      addon: 1,
+      price: 7,
+      addon_price: 10
+    },
+    {
+      name: "Click! pentru femei",
+      category: "Femei",
+      periodicity: "Saptamanal",
+      newspaper_type: "Platit",
+      area: "National",
+      addon: 1,
+      price: 10,
+      addon_price: 15
     }
   ]
 
